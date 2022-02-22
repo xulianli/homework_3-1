@@ -175,51 +175,56 @@ def update_candlestick_graph(n_clicks, currency_string, what_to_show,
     # Some default values are provided below to help with your testing.
     # Don't forget -- you'll need to update the signature in this callback
     #   function to include your new vars!
-    # cph = fetch_historical_data(
-    #     contract=contract,
-    #     endDateTime='',
-    #     durationStr='30 D',       # <-- make a reactive input
-    #     barSizeSetting='1 hour',  # <-- make a reactive input
-    #     whatToShow=what_to_show,
-    #     useRTH=True               # <-- make a reactive input
-    # )
+    cph = fetch_historical_data(
+         contract=contract,
+         endDateTime='',
+         durationStr='30 D',       # <-- make a reactive input
+         barSizeSetting='1 hour',  # <-- make a reactive input
+         whatToShow=what_to_show,
+         useRTH=True               # <-- make a reactive input
+     )
     # # # Make the candlestick figure
-    # fig = go.Figure(
-    #     data=[
-    #         go.Candlestick(
-    #             x=cph['date'],
-    #             open=cph['open'],
-    #             high=cph['high'],
-    #             low=cph['low'],
-    #             close=cph['close']
-    #         )
-    #     ]
-    # )
+    fig = go.Figure(
+         data=[
+             go.Candlestick(
+                 x=app.historical_data['date'],
+                 open=app.historical_data['open'],
+                 high=app.historical_data['high'],
+                 low=app.historical_data['low'],
+                 close=app.historical_data['close']
+             )
+         ]
+     )
+
+
+    currency_string = 'Historical data'
     # # # Give the candlestick figure a title
-    # fig.update_layout(title=('Exchange Rate: ' + currency_string))
+    fig.update_layout(title=('Exchange Rate: ' + currency_string))
     ############################################################################
     ############################################################################
 
     ############################################################################
     ############################################################################
+
+
     # This block returns a candlestick plot of apple stock prices. You'll need
     # to delete or comment out this block and use your currency prices instead.
-    df = pd.read_csv(
-        'https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv'
-    )
-    fig = go.Figure(
-        data=[
-            go.Candlestick(
-                x=df['Date'],
-                open=df['AAPL.Open'],
-                high=df['AAPL.High'],
-                low=df['AAPL.Low'],
-                close=df['AAPL.Close']
-            )
-        ]
-    )
+    #df = pd.read_csv(
+    #    'https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv'
+    #)
+    #fig = go.Figure(
+    #    data=[
+    #        go.Candlestick(
+    #            x=df['Date'],
+    #            open=df['AAPL.Open'],
+    #            high=df['AAPL.High'],
+    #            low=df['AAPL.Low'],
+    #            close=df['AAPL.Close']
+    #        )
+    #    ]
+    #)
 
-    currency_string = 'default Apple price data fetch'
+   # currency_string = 'default Apple price data fetch'
     ############################################################################
     ############################################################################
 

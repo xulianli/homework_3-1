@@ -23,3 +23,25 @@ historical_data = fetch_historical_data(contract)
 print(historical_data)
 
 # This script is an excellent place for scratch work as you figure this out.
+import dash
+import plotly.graph_objects as go
+from dash import dcc
+from dash import html
+from dash.dependencies import Input, Output, State
+from ibapi.contract import Contract
+from fintech_ibkr import *
+import pandas as pd
+fig = go.Figure(
+        data=[
+            go.Candlestick(
+                x=historical_data['date'],
+                open=historical_data['open'],
+                high=historical_data['high'],
+                low=historical_data['low'],
+                close=historical_data['close']
+            )
+        ]
+    )
+
+currency_string = 'default Apple price data fetch'
+fig
