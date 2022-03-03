@@ -187,11 +187,11 @@ def update_candlestick_graph(n_clicks, currency_string, what_to_show,
     fig = go.Figure(
          data=[
              go.Candlestick(
-                 x=app.historical_data['date'],
-                 open=app.historical_data['open'],
-                 high=app.historical_data['high'],
-                 low=app.historical_data['low'],
-                 close=app.historical_data['close']
+                 x=cph['date'],
+                 open=cph['open'],
+                 high=cph['high'],
+                 low=cph['low'],
+                 close=cph['close']
              )
          ]
      )
